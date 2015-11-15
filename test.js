@@ -17,7 +17,7 @@ describe('Request to the root  path', function(){
     it('Returns index file with Cities', function(done){
         request(app)
             .get('/')
-            .expect('/cities/i', done);
+            .expect(/cities/i, done);
     });
 });
 
