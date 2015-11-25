@@ -23,6 +23,12 @@ app.get('/cities', function (request, response) {
 
 app.post('/cities', urlEncoded, function (request, response) {
     var newCity = request.body;
+    if(!newCity.name ||!newCity.description)
+    {
+        response.sendStatus(400);
+        return false;
+    }
+
     cities[newCity.name] = newCity.description;
     response.status(201).json(newCity.name);
 });

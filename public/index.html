@@ -10,7 +10,7 @@
 
 <div class="bg-success col-md-6" style="margin: 0 auto; float:none">
     <h2 class="pageHeader">Cities</h2>
-
+    <p class="bg-danger validationMsg"> Validation failed: fields are required</p>
     <form style="padding: 10px">
         <div class="form-group">
             <input type="text" class="form-control" name="name" placeholder="Name">
@@ -36,8 +36,11 @@
         border-radius: 5px;
     }
 
-    .city_list .cityName{
-
+    .validationMsg{
+        display: none;
+        margin: 10px;
+        height: 50px;
+        line-height: 50px;
     }
 
     .pageHeader {

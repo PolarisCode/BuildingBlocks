@@ -1,6 +1,7 @@
 $(document).ready((function () {
     var city_list = $('.city_list'),
         form = $('form'),
+        validationMsg =$('.validationMsg'),
 
         appendCity = function (name) {
             city_list.append('<div class="bg-primary cityItem"><span class="cityName">' + name +
@@ -28,9 +29,12 @@ $(document).ready((function () {
                     data: cityData
                 })
                     .error(function (err) {
-                        alert('Error occurred: ' + err.toString());
+                        if(err.status=400){
+                            validationMsg.show();
+                        }
                     })
                     .success(function (cityName) {
+                        validationMsg.hide();
                         appendCity(cityName);
                         form[0].reset();
                     });
