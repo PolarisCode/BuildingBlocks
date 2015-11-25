@@ -37,7 +37,7 @@ describe('Listing cities in /cities', function(){
     it('Returns initial cities', function(done){
             request(app)
                 .get('/cities')
-                .expect(JSON.stringify(['Lotopia', 'Caspiana','Indigo']), done);
+                .expect(JSON.stringify(['Lotopia', 'Caspiana','Indigo', 'Banana']), done);
     });
 });
 
@@ -55,6 +55,14 @@ describe("Creating new cities", function(){
             .send('name=springfield&description=Where+the+simpson+live')
             .expect(/springfield/i,done);
     });
+});
+
+describe("Deleting cities", function(){
+   it("Returns 204 status code", function(done){
+       request(app)
+           .delete("/cities/Banana")
+           .expect(204, done);
+   })
 });
 
 
