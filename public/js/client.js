@@ -52,6 +52,12 @@ $(document).ready((function () {
                     }
                 });
             });
+        },
+
+        handleShowCityInfo = function(){
+            city_list.on('click', '.cityName', function(){
+                window.location = '/cities/' + $(this).parent().find('.cityName').text();
+            });
         };
 
 
@@ -60,6 +66,7 @@ $(document).ready((function () {
         getCities();
         handleFormSubmit();
         handleRemoveCities();
+        handleShowCityInfo();
     })();
 }));
 
